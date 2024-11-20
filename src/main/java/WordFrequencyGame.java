@@ -5,6 +5,7 @@ public class WordFrequencyGame {
     public static final String SPACE = "\\s+";
     public static final String NEW_LINE = "\n";
     public static final String CALCULATE_ERROR_MESSAGE = "Calculate Error";
+    public static final String SPACE_CHAR = " ";
     //    rename: getresult, input, arr
 //    stream
 //    useless code, import, if else
@@ -47,7 +48,7 @@ public class WordFrequencyGame {
 
     private static String getJoinResult(List<WordFrequency> wordFrequencyList) {
         return wordFrequencyList.stream()
-                .map(wordFrequency -> (wordFrequency.getWord() + " " + wordFrequency.getWordCount()))
+                .map(wordFrequency -> (wordFrequency.getWord() + SPACE_CHAR + wordFrequency.getWordCount()))
                 .collect(Collectors.joining(NEW_LINE));
     }
 
