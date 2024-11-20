@@ -1,9 +1,8 @@
 
 public class WordFrequency {
-    private String word; // word
+    private String word;
     private int count;
 
-    //    smell: naming
     public WordFrequency(String word, int count) {
         this.word = word;
         this.count = count;
