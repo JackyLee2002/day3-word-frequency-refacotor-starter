@@ -6,18 +6,9 @@ public class WordFrequencyGame {
     public static final String NEW_LINE = "\n";
     public static final String CALCULATE_ERROR_MESSAGE = "Calculate Error";
     public static final String SPACE_CHAR = " ";
-    //    rename: getresult, input, arr
-//    stream
-//    useless code, import, if else
-//    reformat, empty space
-//    temp field: input = list
-//    unused import
-//    extract getResult method
-//    magic string
 
     public String getWordFrequency(String sentence) {
         try {
-            //split the input string with 1 to n pieces of spaces
             List<WordFrequency> wordFrequencyList = getInitialWordFrequencies(sentence);
 
             wordFrequencyList = getWordFrequencies(wordFrequencyList);
@@ -30,7 +21,6 @@ public class WordFrequencyGame {
     }
 
     private List<WordFrequency> getWordFrequencies(List<WordFrequency> wordFrequencyList) {
-        //get the map for the next step of sizing the same word
         Map<String, List<WordFrequency>> wordToWordFrequenciesMap = getListMap(wordFrequencyList);
 
         return wordToWordFrequenciesMap.entrySet().stream()
