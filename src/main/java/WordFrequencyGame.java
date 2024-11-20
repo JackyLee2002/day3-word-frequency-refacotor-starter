@@ -44,9 +44,7 @@ public class WordFrequencyGame {
                 .sorted((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount())
                 .forEach(resultWordFrequencyList::add);
 
-        wordFrequencyList = resultWordFrequencyList;
-
-        return wordFrequencyList;
+        return resultWordFrequencyList;
     }
 
     private static String getJoinResult(List<WordFrequency> wordFrequencyList) {
@@ -58,10 +56,9 @@ public class WordFrequencyGame {
     private static List<WordFrequency> GetInitialWordFrequencies(String sentence) {
         String[] words = sentence.split(SPACE);
 
-        List<WordFrequency> wordFrequencyList = Arrays.stream(words)
+        return Arrays.stream(words)
                 .map(word -> new WordFrequency(word, 1))
                 .collect(Collectors.toList());
-        return wordFrequencyList;
     }
 
     private Map<String, List<WordFrequency>> getListMap(List<WordFrequency> inputList) {
