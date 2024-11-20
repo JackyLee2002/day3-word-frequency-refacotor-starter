@@ -24,18 +24,7 @@ public class WordFrequencyGame {
                 //split the input string with 1 to n pieces of spaces
                 List<WordFrequency> wordFrequencyList = GetInitialWordFrequencies(sentence);
 
-                //get the map for the next step of sizing the same word
-                Map<String, List<WordFrequency>> wordToWordFrequenciesMap = getListMap(wordFrequencyList);
-
-                List<WordFrequency> resultWordFrequencyList = new ArrayList<>();
-                for (Map.Entry<String, List<WordFrequency>> entry : wordToWordFrequenciesMap.entrySet()) {
-                    WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
-                    resultWordFrequencyList.add(wordFrequency);
-                }
-
-                wordFrequencyList = resultWordFrequencyList;
-
-                wordFrequencyList.sort((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount());
+                wordFrequencyList = getWordFrequencies(wordFrequencyList);
 
                 return getJoinResult(wordFrequencyList);
 
@@ -43,6 +32,22 @@ public class WordFrequencyGame {
                 return CALCULATE_ERROR_MESSAGE;
             }
         }
+    }
+
+    private List<WordFrequency> getWordFrequencies(List<WordFrequency> wordFrequencyList) {
+        //get the map for the next step of sizing the same word
+        Map<String, List<WordFrequency>> wordToWordFrequenciesMap = getListMap(wordFrequencyList);
+
+        List<WordFrequency> resultWordFrequencyList = new ArrayList<>();
+        for (Map.Entry<String, List<WordFrequency>> entry : wordToWordFrequenciesMap.entrySet()) {
+            WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
+            resultWordFrequencyList.add(wordFrequency);
+        }
+
+        wordFrequencyList = resultWordFrequencyList;
+
+        wordFrequencyList.sort((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount());
+        return wordFrequencyList;
     }
 
     private static String getJoinResult(List<WordFrequency> wordFrequencyList) {
