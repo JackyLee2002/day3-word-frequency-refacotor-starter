@@ -36,17 +36,15 @@ public class WordFrequencyGame {
                     WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
                     resultWordFrequencyList.add(wordFrequency);
                 }
-//
-
 
                 wordFrequencyList = resultWordFrequencyList;
 
                 wordFrequencyList.sort((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount());
 
+                return  wordFrequencyList.stream()
+                        .map(wordFrequency -> (wordFrequency.getWord() + " " + wordFrequency.getWordCount()))
+                        .collect(Collectors.joining(NEW_LINE));
 
-
-
-                return wordFrequencyString;
             } catch (Exception e) {
                 return CALCULATE_ERROR_MESSAGE;
             }
