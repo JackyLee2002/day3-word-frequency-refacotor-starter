@@ -23,7 +23,7 @@ public class WordFrequencyGame {
             try {
                 //split the input string with 1 to n pieces of spaces
                 String[] words = sentence.split(SPACE);
-                
+
                 List<WordFrequency> wordFrequencyList = Arrays.stream(words)
                         .map(word -> new WordFrequency(word, 1))
                         .collect(Collectors.toList());
@@ -36,6 +36,8 @@ public class WordFrequencyGame {
                     WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
                     resultWordFrequencyList.add(wordFrequency);
                 }
+
+
                 wordFrequencyList = resultWordFrequencyList;
 
                 wordFrequencyList.sort((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount());
@@ -45,6 +47,11 @@ public class WordFrequencyGame {
                     String s = wordFrequency.getWord() + " " + wordFrequency.getWordCount();
                     joiner.add(s);
                 }
+//                wordFrequencyList.stream()
+//                        .map(wordFrequency -> joiner.add(wordFrequency.getWord() + " " + wordFrequency.getWordCount()))
+//                        .close();
+
+
                 return joiner.toString();
             } catch (Exception e) {
                 return CALCULATE_ERROR_MESSAGE;
@@ -53,18 +60,8 @@ public class WordFrequencyGame {
     }
 
     private Map<String, List<WordFrequency>> getListMap(List<WordFrequency> inputList) {
-        Map<String, List<WordFrequency>> wordFrequencyMap = new HashMap<>();
-        for (WordFrequency wordFrequency : inputList) {
-//       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
-            if (!wordFrequencyMap.containsKey(wordFrequency.getWord())) {
-                ArrayList wordFrequencyArrayList = new ArrayList<>();
-                wordFrequencyArrayList.add(wordFrequency);
-                wordFrequencyMap.put(wordFrequency.getWord(), wordFrequencyArrayList);
-            } else {
-                wordFrequencyMap.get(wordFrequency.getWord()).add(wordFrequency);
-            }
-        }
-        return wordFrequencyMap;
+        return inputList.stream()
+                .collect(Collectors.groupingBy(WordFrequency::getWord));
     }
 
 
