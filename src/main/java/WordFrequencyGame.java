@@ -8,8 +8,17 @@ import java.io.CharArrayWriter;
 import java.time.LocalDateTime;
 
 public class WordFrequencyGame {
-    public String getResult(String inputStr){
+//    rename: getresult, input, arr
+//    stream
+//    useless code, import, if else
+//    reformat, empty space
+//    temp field: input = list
+//    unused import
+//    extract getResult method
+//    magic string
 
+
+    public String getResult(String inputStr){
 
         if (inputStr.split("\\s+").length==1) {
             return inputStr + " 1";
@@ -58,7 +67,7 @@ public class WordFrequencyGame {
         for (Input input :  inputList){
 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
             if (!map.containsKey(input.getValue())){
-                ArrayList arr = new ArrayList<>();
+                ArrayList arr = new ArrayList<>(); // SMELL: temp variable
                 arr.add(input);
                 map.put(input.getValue(), arr);
             }
@@ -67,7 +76,6 @@ public class WordFrequencyGame {
                 map.get(input.getValue()).add(input);
             }
         }
-
 
         return map;
     }
