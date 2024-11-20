@@ -36,23 +36,17 @@ public class WordFrequencyGame {
                     WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
                     resultWordFrequencyList.add(wordFrequency);
                 }
+//
 
 
                 wordFrequencyList = resultWordFrequencyList;
 
                 wordFrequencyList.sort((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount());
 
-                StringJoiner joiner = new StringJoiner(NEW_LINE);
-                for (WordFrequency wordFrequency : wordFrequencyList) {
-                    String s = wordFrequency.getWord() + " " + wordFrequency.getWordCount();
-                    joiner.add(s);
-                }
-//                wordFrequencyList.stream()
-//                        .map(wordFrequency -> joiner.add(wordFrequency.getWord() + " " + wordFrequency.getWordCount()))
-//                        .close();
 
 
-                return joiner.toString();
+
+                return wordFrequencyString;
             } catch (Exception e) {
                 return CALCULATE_ERROR_MESSAGE;
             }
