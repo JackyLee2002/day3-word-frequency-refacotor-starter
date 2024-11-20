@@ -30,8 +30,8 @@ public class WordFrequencyGame {
 
                 List<WordFrequency> resultWordFrequencyList = new ArrayList<>();
                 for (Map.Entry<String, List<WordFrequency>> entry : wordToWordFrequencyMap.entrySet()) {
-                    WordFrequency input = new WordFrequency(entry.getKey(), entry.getValue().size());
-                    resultWordFrequencyList.add(input);
+                    WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
+                    resultWordFrequencyList.add(wordFrequency);
                 }
                 wordFrequencyList = resultWordFrequencyList;
 
