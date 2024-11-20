@@ -14,8 +14,6 @@ public class WordFrequencyGame {
 //    extract getResult method
 //    magic string
 
-
-
     public String getWordFrequency(String sentence) {
         if (sentence.split(SPACE).length == 1) {
             return sentence + " 1";
@@ -41,7 +39,7 @@ public class WordFrequencyGame {
         List<WordFrequency> resultWordFrequencyList = new ArrayList<>();
         wordToWordFrequenciesMap.entrySet().stream()
                 .map(wordEntry -> new WordFrequency(wordEntry.getKey(), wordEntry.getValue().size()))
-                .sorted((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount())
+                .sorted(Comparator.comparingInt(WordFrequency::getWordCount).reversed())
                 .forEach(resultWordFrequencyList::add);
 
         return resultWordFrequencyList;
@@ -58,7 +56,7 @@ public class WordFrequencyGame {
 
         return Arrays.stream(words)
                 .map(word -> new WordFrequency(word, 1))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private Map<String, List<WordFrequency>> getListMap(List<WordFrequency> inputList) {
