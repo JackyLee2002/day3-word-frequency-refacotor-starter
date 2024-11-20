@@ -3,10 +3,10 @@ public class Input {
     private String value; // word
     private int count;
 
-//    smell: naming
-    public Input(String w, int i){
-        this.value =w;
-        this.count =i;
+    //    smell: naming
+    public Input(String w, int i) {
+        this.value = w;
+        this.count = i;
     }
 
 
