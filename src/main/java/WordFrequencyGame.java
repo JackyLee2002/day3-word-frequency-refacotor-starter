@@ -21,8 +21,8 @@ public class WordFrequencyGame {
 
                 List<WordFrequency> wordFrequencyList = new ArrayList<>();
                 for (String word : words) {
-                    WordFrequency input = new WordFrequency(word, 1);
-                    wordFrequencyList.add(input);
+                    WordFrequency wordFrequency = new WordFrequency(word, 1);
+                    wordFrequencyList.add(wordFrequency);
                 }
 
                 //get the map for the next step of sizing the same word
