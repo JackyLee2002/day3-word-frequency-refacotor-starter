@@ -37,14 +37,18 @@ public class WordFrequencyGame {
 
                 wordFrequencyList.sort((currentWord, nextWord) -> nextWord.getWordCount() - currentWord.getWordCount());
 
-                return  wordFrequencyList.stream()
-                        .map(wordFrequency -> (wordFrequency.getWord() + " " + wordFrequency.getWordCount()))
-                        .collect(Collectors.joining(NEW_LINE));
+                return getJoinResult(wordFrequencyList);
 
             } catch (Exception e) {
                 return CALCULATE_ERROR_MESSAGE;
             }
         }
+    }
+
+    private static String getJoinResult(List<WordFrequency> wordFrequencyList) {
+        return wordFrequencyList.stream()
+                .map(wordFrequency -> (wordFrequency.getWord() + " " + wordFrequency.getWordCount()))
+                .collect(Collectors.joining(NEW_LINE));
     }
 
     private static List<WordFrequency> GetInitialWordFrequencies(String sentence) {
