@@ -37,13 +37,10 @@ public class WordFrequencyGame {
         //get the map for the next step of sizing the same word
         Map<String, List<WordFrequency>> wordToWordFrequenciesMap = getListMap(wordFrequencyList);
 
-        List<WordFrequency> resultWordFrequencyList = new ArrayList<>();
-        wordToWordFrequenciesMap.entrySet().stream()
+        return wordToWordFrequenciesMap.entrySet().stream()
                 .map(wordEntry -> new WordFrequency(wordEntry.getKey(), wordEntry.getValue().size()))
                 .sorted(Comparator.comparingInt(WordFrequency::getWordCount).reversed())
-                .forEach(resultWordFrequencyList::add);
-
-        return resultWordFrequencyList;
+                .toList();
     }
 
     private static String getJoinResult(List<WordFrequency> wordFrequencyList) {
