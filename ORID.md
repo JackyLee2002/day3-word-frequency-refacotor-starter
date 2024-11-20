@@ -1,0 +1,7 @@
+**O**: I learned about refactoring and code smells, which are indicators of potential problems in the code that might not be bugs and do not affect the expected behaviour, but suggested areas for improvement. Refactoring involves restructuring existing code without changing its external behavior to improve its readability, maintainability, and extensibility. Through the Word Frequency example, I practiced identifying common code smells like mysterious names, duplicated code, use of loops instead of stream api, and large functions, and then applying appropriate refactoring techniques to address these issues.
+
+**R**: Optimistic
+
+**I**: Refactoring is an important practice that not only improves code quality but also promotes better design decisions. Identifying and addressing code smells forced me to think about the underlying design and architecture of the code, leading to more thoughtful and efficient solutions. Additionally, refactoring has made me appreciate the importance of maintaining clean code, which serves as a foundation for future development and reduces technical debt, improving future development efficiency.
+
+**D**: In the future, I plan to integrate refactoring more consistently into my development workflowthrough the use of tools like SonarLint to detect code smells and applying appropriate refactoring techniques. This approach will help maintain high code quality and reduce the likelihood of introducing bugs, ensuring that the codebase remains readable and manageable over time, for both myself and other teammates.
