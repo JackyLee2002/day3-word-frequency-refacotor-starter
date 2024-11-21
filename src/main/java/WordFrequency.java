@@ -8,6 +8,9 @@ public class WordFrequency {
         this.frequency = count;
     }
 
+    public WordFrequency(String word) {
+        this.word = word;
+        this.frequency = 1;
     }
 
     public String getWord() {

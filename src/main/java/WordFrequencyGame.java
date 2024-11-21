@@ -39,7 +39,7 @@ public class WordFrequencyGame {
         String[] words = sentence.split(SPACE);
 
         return Arrays.stream(words)
-                .map(word -> new WordFrequency(word, 1))
+                .map(word -> new WordFrequency(word))
                 .toList();
     }
 
