@@ -31,7 +31,7 @@ public class WordFrequencyGame {
 
     private static String getJoinResult(List<WordFrequency> wordFrequencyList) {
         return wordFrequencyList.stream()
-                .map(wordFrequency -> (wordFrequency.getWord() + SPACE_CHAR + wordFrequency.getFrequency()))
+                .map(WordFrequencyGame::formatWordFrequency)
                 .collect(Collectors.joining(NEW_LINE));
     }
 
@@ -46,6 +46,10 @@ public class WordFrequencyGame {
     private Map<String, List<WordFrequency>> getListMap(List<WordFrequency> inputList) {
         return inputList.stream()
                 .collect(Collectors.groupingBy(WordFrequency::getWord));
+    }
+
+    public static String formatWordFrequency(WordFrequency wordFrequency) {
+        return wordFrequency.getWord() + SPACE_CHAR + wordFrequency.getFrequency();
     }
 
 
