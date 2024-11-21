@@ -25,13 +25,13 @@ public class WordFrequencyGame {
 
         return wordToWordFrequenciesMap.entrySet().stream()
                 .map(wordEntry -> new WordFrequency(wordEntry.getKey(), wordEntry.getValue().size()))
-                .sorted(Comparator.comparingInt(WordFrequency::getWordCount).reversed())
+                .sorted(Comparator.comparingInt(WordFrequency::getFrequency).reversed())
                 .toList();
     }
 
     private static String getJoinResult(List<WordFrequency> wordFrequencyList) {
         return wordFrequencyList.stream()
-                .map(wordFrequency -> (wordFrequency.getWord() + SPACE_CHAR + wordFrequency.getWordCount()))
+                .map(wordFrequency -> (wordFrequency.getWord() + SPACE_CHAR + wordFrequency.getFrequency()))
                 .collect(Collectors.joining(NEW_LINE));
     }
 
