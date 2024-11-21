@@ -7,7 +7,7 @@ public class WordFrequencyGame {
     public static final String CALCULATE_ERROR_MESSAGE = "Calculate Error";
     public static final String SPACE_CHAR = " ";
 
-    public String getWordFrequency(String sentence) {
+    public String getWordFrequencyResult(String sentence) {
         try {
             List<WordFrequency> wordFrequencyList = getInitialWordFrequencies(sentence);
 
@@ -20,7 +20,7 @@ public class WordFrequencyGame {
     }
 
     private List<WordFrequency> getWordFrequencies(List<WordFrequency> wordFrequencyList) {
-        Map<String, List<WordFrequency>> wordToWordFrequenciesMap = getListMap(wordFrequencyList);
+        Map<String, List<WordFrequency>> wordToWordFrequenciesMap = getWordToWordFrequenciesMap(wordFrequencyList);
 
         return wordToWordFrequenciesMap.entrySet().stream()
                 .map(wordEntry -> new WordFrequency(wordEntry.getKey(), wordEntry.getValue().size()))
@@ -40,7 +40,7 @@ public class WordFrequencyGame {
                 .toList();
     }
 
-    private Map<String, List<WordFrequency>> getListMap(List<WordFrequency> inputList) {
+    private Map<String, List<WordFrequency>> getWordToWordFrequenciesMap(List<WordFrequency> inputList) {
         return inputList.stream()
                 .collect(Collectors.groupingBy(WordFrequency::getWord));
     }
