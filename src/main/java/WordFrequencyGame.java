@@ -14,7 +14,6 @@ public class WordFrequencyGame {
             wordFrequencyList = getWordFrequencies(wordFrequencyList);
 
             return getJoinResult(wordFrequencyList);
-
         } catch (Exception e) {
             return CALCULATE_ERROR_MESSAGE;
         }
@@ -51,6 +50,4 @@ public class WordFrequencyGame {
     public static String formatWordFrequency(WordFrequency wordFrequency) {
         return wordFrequency.getWord() + SPACE_CHAR + wordFrequency.getFrequency();
     }
-
-
 }

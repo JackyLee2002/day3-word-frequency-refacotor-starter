@@ -21,5 +21,4 @@ public class WordFrequency {
         return this.frequency;
     }
 
-
 }
